@@ -1,41 +1,55 @@
 import React from "react";
+import Moment from 'react-moment';
+import {
+  FacebookShareButton,
+  TwitterShareButton,
+  EmailShareButton,
+} from 'react-share';
 import CONSTANT from "./../util/constant.js";
+import "./article.css";
 
-const URL = CONSTANT.API_URL + "/posts?key=" + CONSTANT.API_KEY;
+const URL = CONSTANT.API_URL + "/posts";
 
 class Article extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      post: {}
-    };
-  }
 
-  componentDidMount() {
-    fetch(URL)
-      .then(response => response.json())
-      .then(json => {
-        this.setState({
-          post: json || {}
-        });
-      });
-  }
+    constructor() {
+        super();
+        this.state = {
+            post: {}
+        };
+    }
 
-  formatDate(date) {
-    date;
-  }
+    componentDidMount() {
+        let id = this.props.match.params.id || '';
+        fetch(URL + '/' + id + '?key=' + CONSTANT.API_KEY)
+            .then(response => response.json())
+            .then(json => {
+                console.log(json);
+                this.setState({
+                    post: json || {}
+                });
+            });
+    }
 
-  render() {
-    return (
-      <div id="main">
-        <section class="post">
-          <header class="major">
-            {this.state.post.title || "Article pas trouvé :/"}
-          </header>
-          {this.state.post.content}
-        </section>
-      </div>
-    );
-  }
+    formatDate(date) {
+        date;
+    }
+
+    render() {
+        return (
+            <div className="container-fluid full-article">
+                <a className="article-title">
+                    <h2>{this.state.post.title}</h2>
+                </a>
+                <div className="article-meta">
+                    <Moment format="LL" locale="fr">{this.state.post && this.state.post.published}</Moment>
+                    - Par {this.state.post.author && this.state.post.author.displayName}
+                </div>
+                <div className="article-content" dangerouslySetInnerHTML={{ __html: this.state.post.content }} />
+                <hr />
+                <FacebookShareButton url={window.location.href} />
+            </div>
+        );
+    }
 }
 export default Article;

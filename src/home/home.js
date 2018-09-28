@@ -1,12 +1,12 @@
 import React from "react";
 import Moment from 'react-moment';
 import CONSTANT from "./../util/constant.js";
-import './articleGrid.css';
+import './home.css';
 
 
 const URL = CONSTANT.API_URL + "/posts?key=" + CONSTANT.API_KEY;
 
-class ArticleGrid extends React.Component {
+class Home extends React.Component {
     constructor() {
         super();
         this.state = {
@@ -48,11 +48,11 @@ class ArticleGrid extends React.Component {
                     <aside className="col-md-4">
                         {mainPost &&
                             <div className="main-article">
-                                <a style={{ backgroundImage: 'url("' + this.getImageSrc(mainPost.content) + '")' }} className="article-img"></a>
+                                <a href={'/article/' + mainPost.id} style={{ backgroundImage: 'url("' + this.getImageSrc(mainPost.content) + '")' }} className="article-img"></a>
                                 <div className="article-meta">
                                     <Moment format="LL" locale="fr">{mainPost.published}</Moment>
                                 </div>
-                                <a className="article-title">
+                                <a className="article-title" href={'/article/' + mainPost.id}>
                                     <h5>{mainPost.title}</h5>
                                 </a>
                                 <p className="mb-0">{this.getText(mainPost.content)}</p>
@@ -63,8 +63,8 @@ class ArticleGrid extends React.Component {
                         <div className="row">
                             {this.state.posts.slice(1).map((post, key) => (
                                 <div className="col-md-6 justify-content-around" key={key}>
-                                    <a style={{ backgroundImage: 'url("' + this.getImageSrc(post.content) + '")' }} className="article-img"></a>
-                                    <a className="article-title">
+                                    <a href={'/article/' + post.id} style={{ backgroundImage: 'url("' + this.getImageSrc(post.content) + '")' }} className="article-img"></a>
+                                    <a href={'/article/' + post.id} className="article-title">
                                         <h5>{post.title}</h5>
                                     </a>
                                 </div>
@@ -91,4 +91,4 @@ class ArticleGrid extends React.Component {
             });
     }
 }
-export default ArticleGrid;
+export default Home;

@@ -1,0 +1,20 @@
+div.full-article {
+    width : 70%;
+}
+
+div.full-article a.article-title h2 {
+    margin-top : 50px;
+}
+
+div.full-article div.article-meta {
+    margin-bottom : 100px;
+    text-align: center;
+}
+
+div.full-article div.article-content {
+    margin-bottom : 100px;
+}
+
+div.full-article a {
+    color : #FC427B;
+}

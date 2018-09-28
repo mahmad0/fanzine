@@ -41,6 +41,10 @@ box-sizing: border-box ;
  transition-timing-function: ease ;
 }
 
+div.content {
+    margin-bottom : 200px;
+}
+
 div.site-footer {
     background-color: white;
 }

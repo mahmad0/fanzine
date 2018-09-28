@@ -49,7 +49,7 @@ div.article-meta {
 }
  a.article-title h5 {
      display: block;
-     color: #3B3B98;
+     color: rgba(0, 0, 0, 0.5);
      font-weight: bold;
      margin-block-start: 0.83em;
      margin-block-end: 0.83em;

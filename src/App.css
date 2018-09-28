@@ -1,6 +1,8 @@
-/* stylelint-disable selector-list-comma-newline-after */
+@import url('https://fonts.googleapis.com/css?family=Lato|Oswald');
+
 body {
     background-color: #fff8de;
+    font-family: 'Lato', sans-serif;
 }
 
 .blog-header {
@@ -96,7 +98,7 @@ h6 {
 }
 
 .border-bottom {
-    border-bottom: 1px solid #e5e5e5;
+    border-bottom: 1px dashed #e5e5e5;
 }
 
 .box-shadow {
@@ -135,24 +137,6 @@ h6 {
 }
 
 /*
-   * Blog posts
-   */
-
-.blog-post {
-    margin-bottom: 4rem;
-}
-
-.blog-post-title {
-    margin-bottom: .25rem;
-    font-size: 2.5rem;
-}
-
-.blog-post-meta {
-    margin-bottom: 1.25rem;
-    color: #999;
-}
-
-/*
    * Footer
    */
 
@@ -173,19 +157,19 @@ h6 {
     left: 0;
     right: 0;
     z-index: 1;
-  
+
     display: block;
     width: 1200px;
     height: 800px;
-  
+
     -webkit-filter: blur(5px);
     -moz-filter: blur(5px);
     -o-filter: blur(5px);
     -ms-filter: blur(5px);
     filter: blur(5px);
-    
+
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-position: center; 
+    background-position: center;
     background-image: url('http://4.bp.blogspot.com/-D0iWKM8SL9w/Ux9qsu3z7YI/AAAAAAAACAU/zIxe5wQ3dkw/s1600/afficheFG1.jpg');
 }

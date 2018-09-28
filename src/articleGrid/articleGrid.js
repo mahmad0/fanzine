@@ -9,18 +9,13 @@ class ArticleGrid extends React.Component {
     constructor() {
         super();
         this.state = {
-            posts: []
+            posts: [],
+            accessToken: ''
         };
     }
 
     componentDidMount() {
-        fetch(URL)
-            .then(response => response.json())
-            .then(json => {
-                this.setState({
-                    posts: json.items || []
-                });
-            });
+        this.loadPosts();
     }
 
     formatDate(date) {
@@ -31,8 +26,8 @@ class ArticleGrid extends React.Component {
         let tmp = document.createElement("div");
         tmp.innerHTML = content;
         let text = tmp.textContent || tmp.innerText || "";
-        if (text.length > 200) {
-            text = text.substr(0, 200).trim() + "...";
+        if (text.length > 500) {
+            text = text.substr(0, 500).trim() + "...";
         }
         return text;
     }
@@ -49,29 +44,27 @@ class ArticleGrid extends React.Component {
     }
 
     render() {
+        let mainPost = this.state.posts && this.state.posts.length > 0 && this.state.posts[0];
         return (
             <main role="main" className="container">
                 <div className="row justify-content-around">
-                    <div className="col-md-4">
-                        <h4 className="pb-3 mb-4">Tout chaud !</h4>
-                    </div>
-                    <div className="col-md-6">
-                        <h4 className="pb-3 mb-4">Arcadia</h4>
-                    </div>
-                </div>
-                <div className="row justify-content-around">
-                    <aside className="col-md-4 blog-main">
-                        {this.posts && this.posts.length > 1 && <div>
-                            <img src={this.getImageSrc(this.posts[0].content)} className="rounded mx-auto d-block article-img" />
-                            <h5>{this.posts[0].title}</h5>
-                            <p>{this.formatDate(this.posts[0].published)}</p>
-                        </div>}
+                    <aside className="col-md-4">
+                        {mainPost &&
+                            <div className="main-article">
+                                <a style={{ backgroundImage: 'url("' + this.getImageSrc(mainPost.content) + '")' }} className="article-img"></a>
+                                <a className="article-title">
+                                    <h5>{mainPost.title}</h5>
+                                </a>
+                                <p>{this.formatDate(mainPost.published)}</p>
+                                <p className="mb-0">{this.getText(mainPost.content)}</p>
+                            </div>
+                        }
                     </aside>
                     <aside className="col-md-6 blog-sidebar">
                         <div className="row">
-                            {this.state.posts.splice(1).map((post, key) => (
+                            {this.state.posts.map((post, key) => (
                                 <div className="col-md-6 justify-content-around" key={key}>
-                                    <a style={{backgroundImage: 'url("' + this.getImageSrc(post.content) + '")'}} className="article-img"></a>
+                                    <a style={{ backgroundImage: 'url("' + this.getImageSrc(post.content) + '")' }} className="article-img"></a>
                                     <a className="article-title">
                                         <h5>{post.title}</h5>
                                     </a>
@@ -83,6 +76,21 @@ class ArticleGrid extends React.Component {
                 </div>
             </main>
         )
+    }
+
+    loadPosts() {
+        let url = URL;
+        if (this.state.accessToken.length > 0) {
+            url += '&access_token=' + this.state.accessToken;
+        }
+        fetch(url)
+            .then(response => response.json())
+            .then(json => {
+                this.setState({
+                    posts: this.state.posts.concat(json.items || []),
+                    accessToken : json.nextPageToken
+                });
+            });
     }
 }
 export default ArticleGrid;

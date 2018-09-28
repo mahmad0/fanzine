@@ -1,4 +1,5 @@
 import React from "react";
+import Moment from 'react-moment';
 import CONSTANT from "./../util/constant.js";
 import './articleGrid.css';
 
@@ -16,10 +17,6 @@ class ArticleGrid extends React.Component {
 
     componentDidMount() {
         this.loadPosts();
-    }
-
-    formatDate(date) {
-        date;
     }
 
     getText(content) {
@@ -52,23 +49,24 @@ class ArticleGrid extends React.Component {
                         {mainPost &&
                             <div className="main-article">
                                 <a style={{ backgroundImage: 'url("' + this.getImageSrc(mainPost.content) + '")' }} className="article-img"></a>
+                                <div className="article-meta">
+                                    <Moment format="LL" locale="fr">{mainPost.published}</Moment>
+                                </div>
                                 <a className="article-title">
                                     <h5>{mainPost.title}</h5>
                                 </a>
-                                <p>{this.formatDate(mainPost.published)}</p>
                                 <p className="mb-0">{this.getText(mainPost.content)}</p>
                             </div>
                         }
                     </aside>
                     <aside className="col-md-6 blog-sidebar">
                         <div className="row">
-                            {this.state.posts.map((post, key) => (
+                            {this.state.posts.slice(1).map((post, key) => (
                                 <div className="col-md-6 justify-content-around" key={key}>
                                     <a style={{ backgroundImage: 'url("' + this.getImageSrc(post.content) + '")' }} className="article-img"></a>
                                     <a className="article-title">
                                         <h5>{post.title}</h5>
                                     </a>
-                                    <p>{this.formatDate(post.published)}</p>
                                 </div>
                             ))}
                         </div>
@@ -88,7 +86,7 @@ class ArticleGrid extends React.Component {
             .then(json => {
                 this.setState({
                     posts: this.state.posts.concat(json.items || []),
-                    accessToken : json.nextPageToken
+                    accessToken: json.nextPageToken
                 });
             });
     }

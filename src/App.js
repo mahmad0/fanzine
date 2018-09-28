@@ -10,6 +10,8 @@ import {
     NavItem,
     NavLink
 } from 'reactstrap';
+import Moment from 'react-moment';
+import 'moment-timezone';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faRandom } from '@fortawesome/free-solid-svg-icons'
 import './App.css';
@@ -40,10 +42,7 @@ class App extends Component {
                         <Collapse isOpen={this.state.isOpen} navbar>
                             <Nav className="ml-auto" navbar>
                                 <NavItem>
-                                    <NavLink className="header-link" href="/manifeste/">Manifeste</NavLink>
-                                </NavItem>
-                                <NavItem>
-                                    <NavLink className="header-link" href="/shop/">Boutique</NavLink>
+                                    <NavLink className="header-link" href="/productions/">Nos productions</NavLink>
                                 </NavItem>
                                 <NavItem>
                                     <NavLink className="header-link" href="/rejoindre/">Nous rejoindre</NavLink>

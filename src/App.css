@@ -24,15 +24,13 @@ a.site-header-logo {
 
 a.header-link {
 box-sizing: border-box ;
- color: rgb(0, 0, 0) ;
+ color: #e74c3c ;
  cursor: pointer;
  display: inline;
  font-family: Oswald, sans-serif;
  font-size: 22px;
  font-weight: 700;
  text-decoration: none;
- margin-left: 20px;
- line-height: 26px;
  text-decoration-line:none;
  text-decoration-style: none;
  text-size-adjust: 100% ;

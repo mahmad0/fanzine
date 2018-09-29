@@ -24,7 +24,7 @@ a.site-header-logo {
 
 a.header-link {
 box-sizing: border-box ;
- color: #e74c3c ;
+ color: rgba(0, 0, 0, 0.5) ;
  cursor: pointer;
  display: inline;
  font-family: Oswald, sans-serif;
@@ -39,6 +39,10 @@ box-sizing: border-box ;
  transition-duration: 0.3s ;
  transition-property: color ;
  transition-timing-function: ease ;
+}
+
+a.header-link:hover {
+ color: #FC427B;
 }
 
 div.content {

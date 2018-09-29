@@ -48,6 +48,10 @@ div.article-meta {
      cursor: pointer;
 }
  a.article-title h5 {
+     transition: color .3s ease;
+    text-decoration: none;
+    text-decoration-line:none;
+    text-decoration-style: none;
      display: block;
      color: rgba(0, 0, 0, 0.5);
      font-weight: bold;
@@ -55,6 +59,13 @@ div.article-meta {
      margin-block-end: 0.83em;
      margin-inline-start: 0px;
      margin-inline-end: 0px;
+}
+
+a.article-title h5:hover {
+    text-decoration: none;
+    text-decoration-line:none;
+    text-decoration-style: none;
+    color : #FC427B;
 }
 
 div.main-article {

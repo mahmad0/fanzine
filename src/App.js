@@ -40,7 +40,7 @@ class App extends Component {
             <Router>
                 <div className="container">
                     <div className="site-header sticky-top">
-                        <Navbar color="light" light expand="md">
+                        <Navbar expand="md">
                             <NavbarBrand className="site-header-logo text-dark" href="/">Arcadia Graphic Studio</NavbarBrand>
                             <NavbarToggler onClick={this.toggleMenu} />
                             <Collapse isOpen={this.state.isOpen} navbar>

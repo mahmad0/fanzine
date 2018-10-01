@@ -1,9 +1,7 @@
 import React from "react";
 import Moment from 'react-moment';
 import {
-  FacebookShareButton,
-  TwitterShareButton,
-  EmailShareButton,
+  FacebookShareButton
 } from 'react-share';
 import CONSTANT from "./../util/constant.js";
 import "./article.css";

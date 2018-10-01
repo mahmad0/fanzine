@@ -1,0 +1,29 @@
+.main-production {
+  background-size: cover;
+  color: white;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.production-cover {
+    width: 80%;
+    height: 300px;
+    border-radius: 21px 21px 0 0;
+    background-size: cover;
+    color: white;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.flex-equal > * {
+  -ms-flex: 1;
+  flex: 1;
+}
+@media (min-width: 768px) {
+  .flex-md-equal > * {
+    -ms-flex: 1;
+    flex: 1;
+  }
+}
+
+.overflow-hidden { overflow: hidden; }

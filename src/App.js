@@ -11,13 +11,10 @@ import {
     NavItem,
     NavLink
 } from 'reactstrap';
-import Moment from 'react-moment';
 import 'moment-timezone';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faRandom } from '@fortawesome/free-solid-svg-icons'
 import './App.css';
-
 import Article from './article/article';
+import Productions from './productions/productions';
 import Home from './home/home';
 
 class App extends Component {
@@ -46,10 +43,10 @@ class App extends Component {
                             <Collapse isOpen={this.state.isOpen} navbar>
                                 <Nav className="ml-auto" navbar>
                                     <NavItem>
-                                        <NavLink className="header-link" href="/productions/">Nos productions</NavLink>
+                                        <NavLink className="header-link" href="/productions">Nos productions</NavLink>
                                     </NavItem>
                                     <NavItem>
-                                        <NavLink className="header-link" href="/rejoindre/">Nous rejoindre</NavLink>
+                                        <NavLink className="header-link" href="/rejoindre">Nous rejoindre</NavLink>
                                     </NavItem>
                                 </Nav>
                             </Collapse>
@@ -59,6 +56,8 @@ class App extends Component {
                     <div className="content">
                         <Switch>
                             <Route exact path="/" component={Home} />
+                            <Route exact path="/productions" component={Productions} />
+                            <Route exact path="/productions/:id" component={Article} />
                             <Route exact path="/article/:id" component={Article} />
                             <Route component={Home} />
                         </Switch>

@@ -14,6 +14,7 @@ import {
 import 'moment-timezone';
 import './App.css';
 import Article from './article/article';
+import Production from './production/production';
 import Productions from './productions/productions';
 import Home from './home/home';
 
@@ -57,7 +58,7 @@ class App extends Component {
                         <Switch>
                             <Route exact path="/" component={Home} />
                             <Route exact path="/productions" component={Productions} />
-                            <Route exact path="/productions/:id" component={Article} />
+                            <Route exact path="/productions/:id" component={Production} />
                             <Route exact path="/article/:id" component={Article} />
                             <Route component={Home} />
                         </Switch>

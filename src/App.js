@@ -11,6 +11,7 @@ import {
     NavItem,
     NavLink
 } from 'reactstrap';
+import { Link } from 'react-router-dom'
 import 'moment-timezone';
 import './App.css';
 import Article from './article/article';
@@ -39,15 +40,15 @@ class App extends Component {
                 <div className="container">
                     <div className="site-header sticky-top">
                         <Navbar expand="md">
-                            <NavbarBrand className="site-header-logo text-dark" href="/">Arcadia Graphic Studio</NavbarBrand>
+                            <Link to="/"><NavbarBrand className="site-header-logo text-dark">Arcadia Graphic Studio</NavbarBrand></Link>
                             <NavbarToggler onClick={this.toggleMenu} />
                             <Collapse isOpen={this.state.isOpen} navbar>
                                 <Nav className="ml-auto" navbar>
                                     <NavItem>
-                                        <NavLink className="header-link" href="/productions">Nos productions</NavLink>
+                                        <Link to="/productions"><NavLink className="header-link">Nos productions</NavLink></Link>
                                     </NavItem>
                                     <NavItem>
-                                        <NavLink className="header-link" href="/rejoindre">Nous rejoindre</NavLink>
+                                        <Link to="/"><NavLink className="header-link">Nous rejoindre</NavLink></Link>
                                     </NavItem>
                                 </Nav>
                             </Collapse>

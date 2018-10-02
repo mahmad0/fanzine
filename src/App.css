@@ -22,7 +22,7 @@ a.site-header-logo {
     text-decoration: none;
 }
 
-a.header-link {
+a.header-link.nav-link {
 box-sizing: border-box ;
  color: rgba(0, 0, 0, 0.5) ;
  cursor: pointer;

@@ -29,10 +29,6 @@ class Article extends React.Component {
             });
     }
 
-    formatDate(date) {
-        date;
-    }
-
     render() {
         return (
             <div className="container-fluid full-article">

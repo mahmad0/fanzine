@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom'
 import PRODUCTIONS from "./../util/productions.js";
 import "./productions.css";
 
@@ -24,7 +25,9 @@ class Productions extends React.Component {
                                 <h2 className="display-5">{prod.title}</h2>
                                 <p className="lead">{prod.description}</p>
                             </div>
-                            <div className="bg-light shadow-sm mx-auto production-cover" style={{ backgroundImage: 'url(' + prod.cover + ')' }}></div>
+                            <Link to={"/productions/" + prod.id}>
+                                <div className="bg-light shadow-sm mx-auto production-cover" style={{ backgroundImage: 'url(' + prod.cover + ')' }}></div>
+                            </Link>
                         </div>
                     ))}
                 </div>

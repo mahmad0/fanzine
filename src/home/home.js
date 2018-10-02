@@ -1,5 +1,6 @@
 import React from "react";
 import Moment from 'react-moment';
+import { Link } from 'react-router-dom'
 import CONSTANT from "./../util/constant.js";
 import './home.css';
 
@@ -48,13 +49,15 @@ class Home extends React.Component {
                     <aside className="col-md-4">
                         {mainPost &&
                             <div className="main-article">
-                                <a href={'/article/' + mainPost.id} style={{ backgroundImage: 'url("' + this.getImageSrc(mainPost.content) + '")' }} className="article-img"></a>
+                                <Link to={'/article/' + mainPost.id}><a style={{ backgroundImage: 'url("' + this.getImageSrc(mainPost.content) + '")' }} className="article-img"></a></Link>
                                 <div className="article-meta">
                                     <Moment format="LL" locale="fr">{mainPost.published}</Moment>
                                 </div>
-                                <a className="article-title" href={'/article/' + mainPost.id}>
-                                    <h5>{mainPost.title}</h5>
-                                </a>
+                                <Link to={'/article/' + mainPost.id}>
+                                    <a className="article-title">
+                                        <h5>{mainPost.title}</h5>
+                                    </a>
+                                </Link>
                                 <p className="mb-0">{this.getText(mainPost.content)}</p>
                             </div>
                         }
@@ -63,10 +66,14 @@ class Home extends React.Component {
                         <div className="row">
                             {this.state.posts.slice(1).map((post, key) => (
                                 <div className="col-md-6 justify-content-around" key={key}>
-                                    <a href={'/article/' + post.id} style={{ backgroundImage: 'url("' + this.getImageSrc(post.content) + '")' }} className="article-img"></a>
-                                    <a href={'/article/' + post.id} className="article-title">
-                                        <h5>{post.title}</h5>
-                                    </a>
+                                    <Link to={'/article/' + post.id}>
+                                        <a style={{ backgroundImage: 'url("' + this.getImageSrc(post.content) + '")' }} className="article-img"></a>
+                                    </Link>
+                                    <Link to={'/article/' + post.id}>
+                                        <a className="article-title">
+                                            <h5>{post.title}</h5>
+                                        </a>
+                                    </Link>
                                 </div>
                             ))}
                         </div>

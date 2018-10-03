@@ -1,6 +1,7 @@
 const PRODUCTIONS = [{
     id: 0,
     title: 'Forgotten Generation #03',
+    author: '',
     online: false,
     description: 'Nouvelle formule du magazine : maquette et identité visuelle renouvelées, format des comics américains',
     type: 'comics',
@@ -9,6 +10,7 @@ const PRODUCTIONS = [{
 }, {
     id: 1,
     title: 'Esprit Vengeur #01',
+    author: '',
     online: true,
     description: 'Sentinel, Cyber-Shield, Midnight, Red Ann, Thorr, Smasher, Green Claw',
     type: 'comics',
@@ -17,6 +19,7 @@ const PRODUCTIONS = [{
 }, {
     id: 2,
     title: 'La Nuit des monstres',
+    author: '',
     online: true,
     description: 'Mask est un personnage créé par l’auteur Raymond Thayer pour l’éditeur Nedor',
     type: 'text',

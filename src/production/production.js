@@ -39,10 +39,18 @@ class Production extends React.Component {
                 <a className="production-title">
                     <h2>{this.state.production.title}</h2>
                 </a>
-                <ReactMarkdown className="production-content" source={this.state.production.content} />
+                {this.isText() && <ReactMarkdown className="production-content" source={this.state.production.content} />}
                 <hr />
             </div>
         );
+    }
+
+    isText() {
+        return this.state.production && this.state.production.link && this.state.production.type === 'text'
+    }
+
+    isComics() {
+        return this.state.production && this.state.production.link && this.state.production.type === 'comics'
     }
 }
 export default Production;

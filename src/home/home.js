@@ -49,11 +49,11 @@ class Home extends React.Component {
                     <aside className="col-md-4">
                         {mainPost &&
                             <div className="main-article">
-                                <Link to={'/article/' + mainPost.id}><a style={{ backgroundImage: 'url("' + this.getImageSrc(mainPost.content) + '")' }} className="article-img"></a></Link>
+                                <Link to={'/articles/' + mainPost.id}><a style={{ backgroundImage: 'url("' + this.getImageSrc(mainPost.content) + '")' }} className="article-img"></a></Link>
                                 <div className="article-meta">
                                     <Moment format="LL" locale="fr">{mainPost.published}</Moment>
                                 </div>
-                                <Link to={'/article/' + mainPost.id}>
+                                <Link to={'/articles/' + mainPost.id}>
                                     <a className="article-title">
                                         <h5>{mainPost.title}</h5>
                                     </a>
@@ -66,10 +66,10 @@ class Home extends React.Component {
                         <div className="row">
                             {this.state.posts.slice(1).map((post, key) => (
                                 <div className="col-md-6 justify-content-around" key={key}>
-                                    <Link to={'/article/' + post.id}>
+                                    <Link to={'/articles/' + post.id}>
                                         <a style={{ backgroundImage: 'url("' + this.getImageSrc(post.content) + '")' }} className="article-img"></a>
                                     </Link>
-                                    <Link to={'/article/' + post.id}>
+                                    <Link to={'/articles/' + post.id}>
                                         <a className="article-title">
                                             <h5>{post.title}</h5>
                                         </a>

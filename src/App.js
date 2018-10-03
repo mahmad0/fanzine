@@ -36,7 +36,7 @@ class App extends Component {
 
     render() {
         return (
-            <Router>
+            <Router basename={process.env.PUBLIC_URL}>
                 <div className="container">
                     <div className="site-header sticky-top">
                         <Navbar expand="md">
@@ -57,10 +57,10 @@ class App extends Component {
                     </div>
                     <div className="content">
                         <Switch>
-                            <Route exact path="/" component={Home} />
-                            <Route exact path="/productions" component={Productions} />
-                            <Route exact path="/productions/:id" component={Production} />
-                            <Route exact path="/article/:id" component={Article} />
+                            <Route exact path={'/'} component={Home} />
+                            <Route exact path={'/productions'} component={Productions} />
+                            <Route exact path={'/productions/:id'} component={Production} />
+                            <Route exact path={'/articles/:id'} component={Article} />
                             <Route component={Home} />
                         </Switch>
                     </div>

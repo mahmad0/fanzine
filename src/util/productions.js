@@ -15,7 +15,11 @@ const PRODUCTIONS = [{
     description: 'Sentinel, Cyber-Shield, Midnight, Red Ann, Thorr, Smasher, Green Claw',
     type: 'comics',
     cover: 'https://www.amilova.com/images/9383/esprit_vengeur_couvrelettr_71_800.jpg',
-    link: '/assets/productions/espritvengueur/01/'
+    link: [
+        '/assets/productions/espritvengeur/01/01.jpg',
+        '/assets/productions/espritvengeur/01/02.jpg',
+        '/assets/productions/espritvengeur/01/03.jpg',
+    ]
 }, {
     id: 2,
     title: 'La Nuit des monstres',

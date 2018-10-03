@@ -17,7 +17,7 @@ class Production extends React.Component {
         let id = this.props.match.params.id || '';
         let production = PRODUCTIONS[id] || {}
         if (production && production.link && production.type === 'text') {
-            fetch(production.link)
+            fetch(this.getLink(production.link))
             .then(response => response.text())
             .then(text => {
                 production.content = text;
@@ -39,7 +39,11 @@ class Production extends React.Component {
                 <a className="production-title">
                     <h2>{this.state.production.title}</h2>
                 </a>
-                {this.isText() && <ReactMarkdown className="production-content" source={this.state.production.content} />}
+                {this.isComics() &&
+                    this.state.production.link.map((page, key) =>
+                    <img src={this.getLink(page)} key={key} className="img-fluid" alt={key} />)}
+                {this.isText() &&
+                    <ReactMarkdown className="production-content" source={this.state.production.content} />}
                 <hr />
             </div>
         );
@@ -51,6 +55,14 @@ class Production extends React.Component {
 
     isComics() {
         return this.state.production && this.state.production.link && this.state.production.type === 'comics'
+        && Array.isArray(this.state.production.link);
+    }
+
+    getLink(link) {
+        if (link.startsWith('/assets/')) {
+            link = process.env.PUBLIC_URL + link;
+        }
+        return link;
     }
 }
 export default Production;

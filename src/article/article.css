@@ -1,6 +1,9 @@
-div.full-article {
-    width : 70%;
+@media (min-width: 767px) {
+    div.full-article {
+        width : 70%;
+    }
 }
+
 
 div.full-article a.article-title h2 {
     margin-top : 50px;

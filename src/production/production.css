@@ -1,6 +1,9 @@
-div.full-production {
-    width : 70%;
+@media (min-width: 767px) {
+    div.full-production {
+        width : 70%;
+    }
 }
+
 
 div.full-production a.production-title h2 {
     margin-top : 50px;

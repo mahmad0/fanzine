@@ -35,7 +35,7 @@ class Production extends React.Component {
 
     render() {
         return (
-            <div className="container-fluid full-production">
+            <div className="container-fluid full-production text-center">
                 <a className="production-title">
                     <h2>{this.state.production.title}</h2>
                 </a>

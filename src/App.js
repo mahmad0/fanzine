@@ -37,32 +37,35 @@ class App extends Component {
     render() {
         return (
             <Router basename={process.env.PUBLIC_URL}>
-                <div className="container">
-                    <div className="site-header sticky-top">
-                        <Navbar expand="md">
-                            <Link to="/"><NavbarBrand className="site-header-logo text-dark">Arcadia Graphic Studio</NavbarBrand></Link>
+                <div>
+                    <div className="site-header sticky-top bg-dark">
+                        <Navbar expand="md p-0">
+                            <div className="site-header-logo bg-danger">
+                                <Link to="/"><NavbarBrand className="text-light text-center text-uppercase font-weight-bold mx-2">Arcadia Graphic Studio</NavbarBrand></Link>
+                            </div>
                             <NavbarToggler onClick={this.toggleMenu} />
                             <Collapse isOpen={this.state.isOpen} navbar>
-                                <Nav className="ml-auto" navbar>
+                                <Nav className="ml-auto mr-5" navbar>
                                     <NavItem>
-                                        <Link to="/productions"><NavLink className="header-link">Nos productions</NavLink></Link>
+                                        <Link to="/publications"><NavLink className="header-link h5 my-0 text-light font-weight-bold">Nos Publications</NavLink></Link>
                                     </NavItem>
                                     <NavItem>
-                                        <Link to="/"><NavLink className="header-link">Nous rejoindre</NavLink></Link>
+                                        <Link to="/"><NavLink className="header-link h5 my-0 text-light font-weight-bold">Nous rejoindre</NavLink></Link>
                                     </NavItem>
                                 </Nav>
                             </Collapse>
                         </Navbar>
-                        <hr />
                     </div>
-                    <div className="content">
-                        <Switch>
-                            <Route exact path={'/'} component={Home} />
-                            <Route exact path={'/productions'} component={Productions} />
-                            <Route exact path={'/productions/:id'} component={Production} />
-                            <Route exact path={'/articles/:id'} component={Article} />
-                            <Route component={Home} />
-                        </Switch>
+                    <div className="container mt-5">
+                        <div className="content mb-5">
+                            <Switch>
+                                <Route exact path={'/'} component={Home} />
+                                <Route exact path={'/publications'} component={Productions} />
+                                <Route exact path={'/publications/:id'} component={Production} />
+                                <Route exact path={'/articles/:id'} component={Article} />
+                                <Route component={Home} />
+                            </Switch>
+                        </div>
                     </div>
                 </div>
             </Router>

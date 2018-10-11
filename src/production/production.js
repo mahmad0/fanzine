@@ -35,15 +35,18 @@ class Production extends React.Component {
 
     render() {
         return (
-            <div className="container-fluid full-production text-center">
-                <a className="production-title">
+            <div className="container-fluid full-production">
+                <a className="production-title font-weight-bold text-center text-uppercase">
                     <h2>{this.state.production.title}</h2>
                 </a>
                 {this.isComics() &&
-                    this.state.production.link.map((page, key) =>
-                    <img src={this.getLink(page)} key={key} className="img-fluid" alt={key} />)}
+                <div className="text-center">
+                    {this.state.production.link.map((page, key) =>
+                    <img src={this.getLink(page)} key={key} className="img-fluid" alt={key} />
+                    )}
+                </div>}
                 {this.isText() &&
-                    <ReactMarkdown className="production-content" source={this.state.production.content} />}
+                    <ReactMarkdown className="production-content pr-5 pl-5 mb-5" source={this.state.production.content} />}
                 <hr />
             </div>
         );

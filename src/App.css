@@ -1,54 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Lato|Oswald|Domine');
 
-body {
-    background-color: #fff8de;
+div#app {
     font-family: 'Lato', sans-serif;
 }
 
-hr {
-  margin-top: 0;
-  margin-bottom: 1rem;
-  border: 0;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-div.site-header {
-    background-color: white;
-}
-
-
-a.site-header-logo {
-    font-family: 'Rubik', sans-serif;
+div.site-header-logo {
+	font-family: Copperplate,Copperplate Gothic Light,fantasy;
     text-decoration: none;
 }
 
 a.header-link.nav-link {
-box-sizing: border-box ;
- color: rgba(0, 0, 0, 0.5) ;
- cursor: pointer;
- display: inline;
  font-family: Oswald, sans-serif;
- font-size: 22px;
- font-weight: 700;
- text-decoration: none;
- text-decoration-line:none;
- text-decoration-style: none;
- text-size-adjust: 100% ;
- text-transform: uppercase ;
- transition-delay: 0s ;
- transition-duration: 0.3s ;
- transition-property: color ;
- transition-timing-function: ease ;
-}
-
-a.header-link:hover {
- color: #FC427B;
-}
-
-div.content {
-    margin-bottom : 200px;
-}
-
-div.site-footer {
-    background-color: white;
 }

@@ -32,14 +32,14 @@ class Article extends React.Component {
     render() {
         return (
             <div className="container-fluid full-article">
-                <a className="article-title">
-                    <h2>{this.state.post.title}</h2>
+                <a className="article-title font-weight-bold text-center text-uppercase">
+                    <h2 className="mt-5">{this.state.post.title}</h2>
                 </a>
-                <div className="article-meta">
+                <div className="article-meta mb-5 text-black-50 text-center font-weight-light">
                     <Moment format="LL" locale="fr">{this.state.post && this.state.post.published}</Moment>
                     - Par {this.state.post.author && this.state.post.author.displayName}
                 </div>
-                <div className="article-content" dangerouslySetInnerHTML={{ __html: this.state.post.content }} />
+                <div className="article-content pr-5 pl-5 mb-5" dangerouslySetInnerHTML={{ __html: this.state.post.content }} />
                 <hr />
                 <FacebookShareButton url={window.location.href} />
             </div>

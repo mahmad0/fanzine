@@ -1,6 +1,7 @@
 import React from "react";
 import Moment from 'react-moment';
 import { Link } from 'react-router-dom'
+import Productions from '../productions/productions';
 import CONSTANT from "./../util/constant.js";
 import './home.css';
 
@@ -45,39 +46,40 @@ class Home extends React.Component {
         let mainPost = this.state.posts && this.state.posts.length > 0 && this.state.posts[0];
         return (
             <main role="main" className="container">
-                <div className="row justify-content-around">
-                    <aside className="col-md-4">
-                        {mainPost &&
-                            <div className="main-article">
-                                <Link to={'/articles/' + mainPost.id}><a style={{ backgroundImage: 'url("' + this.getImageSrc(mainPost.content) + '")' }} className="article-img"></a></Link>
-                                <div className="article-meta">
-                                    <Moment format="LL" locale="fr">{mainPost.published}</Moment>
-                                </div>
-                                <Link to={'/articles/' + mainPost.id}>
-                                    <a className="article-title">
-                                        <h5>{mainPost.title}</h5>
-                                    </a>
-                                </Link>
-                                <p className="mb-0">{this.getText(mainPost.content)}</p>
-                            </div>
-                        }
-                    </aside>
-                    <aside className="col-md-6 blog-sidebar">
-                        <div className="row">
-                            {this.state.posts.slice(1).map((post, key) => (
-                                <div className="col-md-6 justify-content-around" key={key}>
-                                    <Link to={'/articles/' + post.id}>
-                                        <a style={{ backgroundImage: 'url("' + this.getImageSrc(post.content) + '")' }} className="article-img"></a>
-                                    </Link>
-                                    <Link to={'/articles/' + post.id}>
-                                        <a className="article-title">
-                                            <h5>{post.title}</h5>
-                                        </a>
-                                    </Link>
-                                </div>
-                            ))}
+                {mainPost &&
+                    <div className="row mb-5 main-article border-bottom-3">
+                        <div className="col-6">
+                            <Link to={'/articles/' + mainPost.id}><a style={{ backgroundImage: 'url("' + this.getImageSrc(mainPost.content) + '")' }} className="article-img"></a></Link>
                         </div>
-                    </aside>
+                        <div className="col-6">
+                            <div className="article-meta mb-0 pb-0 text-black-50 text-left font-weight-light">
+                                <Moment format="LL" locale="fr">{mainPost.published}</Moment>
+                            </div>
+                            <Link to={'/articles/' + mainPost.id}>
+                                <a className="article-title font-weight-bold mb-3 text-left text-uppercase">
+                                    <h5>{mainPost.title}</h5>
+                                </a>
+                            </Link>
+                            <p className="mb-0">{this.getText(mainPost.content)}</p>
+                        </div>
+                    </div>
+                }
+                <p className="h3 mb-3">Nouvelles publications</p>
+                <Productions full={false} />
+                <p className="h3 mb-3">News</p>
+                <div className="row">
+                    {this.state.posts.slice(1).map((post, key) => (
+                        <div className="col-4 article" key={key}>
+                            <Link to={'/articles/' + post.id}>
+                                <a style={{ backgroundImage: 'url("' + this.getImageSrc(post.content) + '")' }} className="article-img"></a>
+                            </Link>
+                            <Link to={'/articles/' + post.id}>
+                                <a className="article-title font-weight-bold mb-3 text-center text-uppercase">
+                                    <h5 className="d-block">{post.title}</h5>
+                                </a>
+                            </Link>
+                        </div>
+                    ))}
                 </div>
             </main>
         )

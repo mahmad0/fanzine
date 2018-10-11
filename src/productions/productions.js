@@ -22,9 +22,12 @@ class Productions extends React.Component {
                 <div className="row text-center">
                     {PRODUCTIONS.slice(this.props.full ? 1 : 0, this.props.full ? PRODUCTIONS.length : 4).map((prod, key) => (
                         <div key={key} className="col-md-3 text-center text-black overflow-hidden">
-                            <Link to={"/publications/" + prod.id}>
+                            {prod.online && <Link to={"/publications/" + prod.id}>
                                 <img src={prod.cover} className="mx-auto d-block shadow  production-cover" alt="..." />
-                            </Link>
+                            </Link>}
+                            {!prod.online && <a href={prod.link} target="_blank">
+                                <img src={prod.cover} className="mx-auto d-block shadow  production-cover" alt="..." />
+                            </a>}
                             <div className="p-3 text-left">
                                 {!prod.online && <p className="m-0 p-0">{prod.price}</p>}
                                 {prod.online && <p className="text-primary m-0 p-0">GRATUIT</p>}

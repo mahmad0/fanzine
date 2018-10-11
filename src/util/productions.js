@@ -24,7 +24,7 @@ const PRODUCTIONS = [{
 }, {
     id: 2,
     title: 'La Nuit des monstres',
-    author: '',
+    author: 'Ben Wave',
     online: true,
     description: 'Mask est un personnage créé par l’auteur Raymond Thayer pour l’éditeur Nedor',
     type: 'text',
@@ -33,7 +33,7 @@ const PRODUCTIONS = [{
 }, {
     id: 3,
     title: 'La Nuit des monstres',
-    author: '',
+    author: 'Ben Wave',
     online: true,
     description: 'Mask est un personnage créé par l’auteur Raymond Thayer pour l’éditeur Nedor',
     type: 'text',
@@ -42,7 +42,7 @@ const PRODUCTIONS = [{
 }, {
     id: 4,
     title: 'La Nuit des monstres',
-    author: '',
+    author: 'Ben Wave',
     online: true,
     description: 'Mask est un personnage créé par l’auteur Raymond Thayer pour l’éditeur Nedor',
     type: 'text',

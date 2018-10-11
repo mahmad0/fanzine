@@ -22,7 +22,6 @@ class Article extends React.Component {
         fetch(URL + '/' + id + '?key=' + CONSTANT.API_KEY)
             .then(response => response.json())
             .then(json => {
-                console.log(json);
                 this.setState({
                     post: json || {}
                 });
@@ -39,7 +38,7 @@ class Article extends React.Component {
                     <Moment format="LL" locale="fr">{this.state.post && this.state.post.published}</Moment>
                     - Par {this.state.post.author && this.state.post.author.displayName}
                 </div>
-                <div className="article-content pr-5 pl-5 mb-5" dangerouslySetInnerHTML={{ __html: this.state.post.content }} />
+                <div className="article-content px-auto mb-5" dangerouslySetInnerHTML={{ __html: this.state.post.content }} />
                 <FacebookShareButton url={window.location.href} />
             </div>
         );

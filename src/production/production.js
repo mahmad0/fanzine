@@ -37,8 +37,13 @@ class Production extends React.Component {
         return (
             <div className="container-fluid full-production">
                 <a className="production-title font-weight-bold text-center text-uppercase">
-                    <h2>{this.state.production.title}</h2>
                 </a>
+                <a className="production-title font-weight-bold text-center text-uppercase">
+                    <h2 className="mt-5">{this.state.production.title}</h2>
+                </a>
+                <div className="production-meta mb-5 text-black-50 text-center font-weight-light">
+                    Par {this.state.production.author}
+                </div>
                 {this.isComics() &&
                 <div className="text-center">
                     {this.state.production.link.map((page, key) =>
@@ -46,8 +51,7 @@ class Production extends React.Component {
                     )}
                 </div>}
                 {this.isText() &&
-                    <ReactMarkdown className="production-content pr-5 pl-5 mb-5" source={this.state.production.content} />}
-                <hr />
+                    <ReactMarkdown className="production-content px-auto mb-5" source={this.state.production.content} />}
             </div>
         );
     }

@@ -20,8 +20,8 @@ class Productions extends React.Component {
                     </div>}
 
                 <div className="row text-center">
-                    {PRODUCTIONS.slice(this.props.full ? 1 : 0, this.props.full ? null : 4).map((prod, key) => (
-                        <div key={key} className="col-3 text-center text-black overflow-hidden">
+                    {PRODUCTIONS.slice(this.props.full ? 1 : 0, this.props.full ? PRODUCTIONS.length : 4).map((prod, key) => (
+                        <div key={key} className="col-md-3 text-center text-black overflow-hidden">
                             <Link to={"/publications/" + prod.id}>
                                 <img src={prod.cover} className="mx-auto d-block shadow  production-cover" alt="..." />
                             </Link>

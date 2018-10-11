@@ -40,7 +40,6 @@ class Article extends React.Component {
                     - Par {this.state.post.author && this.state.post.author.displayName}
                 </div>
                 <div className="article-content pr-5 pl-5 mb-5" dangerouslySetInnerHTML={{ __html: this.state.post.content }} />
-                <hr />
                 <FacebookShareButton url={window.location.href} />
             </div>
         );

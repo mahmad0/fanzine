@@ -48,10 +48,10 @@ class Home extends React.Component {
             <main role="main" className="container">
                 {mainPost &&
                     <div className="row mb-5 main-article border-bottom-3">
-                        <div className="col-6">
+                        <div className="col-md-6">
                             <Link to={'/articles/' + mainPost.id}><a style={{ backgroundImage: 'url("' + this.getImageSrc(mainPost.content) + '")' }} className="article-img"></a></Link>
                         </div>
-                        <div className="col-6">
+                        <div className="col-md-6">
                             <div className="article-meta mb-0 pb-0 text-black-50 text-left font-weight-light">
                                 <Moment format="LL" locale="fr">{mainPost.published}</Moment>
                             </div>
@@ -69,7 +69,7 @@ class Home extends React.Component {
                 <p className="h3 mb-3">News</p>
                 <div className="row">
                     {this.state.posts.slice(1).map((post, key) => (
-                        <div className="col-4 article" key={key}>
+                        <div className="col-md-4 article" key={key}>
                             <Link to={'/articles/' + post.id}>
                                 <a style={{ backgroundImage: 'url("' + this.getImageSrc(post.content) + '")' }} className="article-img"></a>
                             </Link>

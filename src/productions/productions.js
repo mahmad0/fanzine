@@ -29,7 +29,7 @@ class Productions extends React.Component {
                                 <img src={prod.cover} className="mx-auto d-block shadow  production-cover" alt="..." />
                             </a>}
                             <div className="p-3 text-left">
-                                {!prod.online && <p className="m-0 p-0">{prod.price}</p>}
+                                {!prod.online && <p className="m-0 p-0"> </p>}
                                 {prod.online && <p className="text-primary m-0 p-0">GRATUIT</p>}
                                 <p className="display-5 text-uppercase font-weight-bold my-0">{prod.title}</p>
                                 <p className="font-weight-light">{prod.author}</p>

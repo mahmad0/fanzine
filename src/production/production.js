@@ -15,19 +15,19 @@ class Production extends React.Component {
 
     componentDidMount() {
         let id = this.props.match.params.id || '';
-        let production = PRODUCTIONS[id] || {}
+        let production = PRODUCTIONS.filter(p => p.id === id).pop() || {}
         if (production && production.link && production.type === 'text') {
             fetch(this.getLink(production.link))
-            .then(response => response.text())
-            .then(text => {
-                production.content = text;
-                this.setState({
-                    production: PRODUCTIONS[id] || {}
+                .then(response => response.text())
+                .then(text => {
+                    production.content = text;
+                    this.setState({
+                        production: production
+                    });
                 });
-            });
         } else {
             this.setState({
-                production: PRODUCTIONS[id] || {}
+                production: production || {}
             });
         }
 
@@ -45,11 +45,11 @@ class Production extends React.Component {
                     Par {this.state.production.author}
                 </div>
                 {this.isComics() &&
-                <div className="text-center">
-                    {this.state.production.link.map((page, key) =>
-                    <img src={this.getLink(page)} key={key} className="img-fluid" alt={key} />
-                    )}
-                </div>}
+                    <div className="text-center">
+                        {this.state.production.link.map((page, key) =>
+                            <img src={this.getLink(page)} key={key} className="img-fluid" alt={key} />
+                        )}
+                    </div>}
                 {this.isText() &&
                     <ReactMarkdown className="production-content px-auto mb-5" source={this.state.production.content} />}
             </div>
@@ -62,7 +62,7 @@ class Production extends React.Component {
 
     isComics() {
         return this.state.production && this.state.production.link && this.state.production.type === 'comics'
-        && Array.isArray(this.state.production.link);
+            && Array.isArray(this.state.production.link);
     }
 
     getLink(link) {

@@ -47,6 +47,9 @@ class App extends Component {
                             <Collapse isOpen={this.state.isOpen} navbar>
                                 <Nav className="ml-auto mr-5" navbar>
                                     <NavItem>
+                                        <Link to="/"><NavLink className="header-link h5 my-0 text-light font-weight-bold">Notre univers</NavLink></Link>
+                                    </NavItem>
+                                    <NavItem>
                                         <Link to="/publications"><NavLink className="header-link h5 my-0 text-light font-weight-bold">Nos Publications</NavLink></Link>
                                     </NavItem>
                                     <NavItem>

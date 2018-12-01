@@ -17,6 +17,7 @@ import './App.css';
 import Article from './article/article';
 import Production from './production/production';
 import Productions from './productions/productions';
+import Universe from './universe/universe';
 import Home from './home/home';
 
 class App extends Component {
@@ -47,7 +48,7 @@ class App extends Component {
                             <Collapse isOpen={this.state.isOpen} navbar>
                                 <Nav className="ml-auto mr-5" navbar>
                                     <NavItem>
-                                        <Link to="/"><NavLink className="header-link h5 my-0 text-light font-weight-bold">Notre univers</NavLink></Link>
+                                        <Link to="/universe"><NavLink className="header-link h5 my-0 text-light font-weight-bold">Notre univers</NavLink></Link>
                                     </NavItem>
                                     <NavItem>
                                         <Link to="/publications"><NavLink className="header-link h5 my-0 text-light font-weight-bold">Nos Publications</NavLink></Link>
@@ -63,6 +64,7 @@ class App extends Component {
                         <div className="content mb-5">
                             <Switch>
                                 <Route exact path={'/'} component={Home} />
+                                <Route exact path={'/universe'} component={Universe} />
                                 <Route exact path={'/publications'} component={Productions} />
                                 <Route exact path={'/publications/:id'} component={Production} />
                                 <Route exact path={'/articles/:id'} component={Article} />

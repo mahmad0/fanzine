@@ -14,6 +14,10 @@ class UniverseAPI {
                             if (!key.includes('gsx$')) {
                                 return;
                             }
+<<<<<<< HEAD
+=======
+                            console.log(key);
+>>>>>>> 1b7249026db97ae49fbf8201b2db1f221142edab
                             entry[key.replace('gsx$', '')] = value[key].$t;
                         });
                         result.push(entry);

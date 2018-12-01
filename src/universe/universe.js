@@ -8,13 +8,17 @@ class Universe extends React.Component {
         super();
         this.state = {
             search: '',
+<<<<<<< HEAD
             loading: false,
+=======
+>>>>>>> 1b7249026db97ae49fbf8201b2db1f221142edab
             characters: [],
             selected: {}
         };
     }
 
     componentDidMount() {
+<<<<<<< HEAD
         this.setState({
             loading : true
         });
@@ -22,6 +26,12 @@ class Universe extends React.Component {
             this.setState({
                 characters: result,
                 loading: false,
+=======
+        UniverseAPI.getAllCharacters().then(result => {
+            console.log(result);
+            this.setState({
+                characters: result,
+>>>>>>> 1b7249026db97ae49fbf8201b2db1f221142edab
                 selected: result[0]
             });
         });
@@ -65,6 +75,10 @@ class Universe extends React.Component {
                     </div>
                     <div className="col-md-10">
                         <h3>
+<<<<<<< HEAD
+=======
+                            <small className="text-muted">Nom </small>
+>>>>>>> 1b7249026db97ae49fbf8201b2db1f221142edab
                             {this.state.selected.name}
                         </h3>
                         <div className="row">
@@ -76,7 +90,11 @@ class Universe extends React.Component {
                                     {Object.keys(this.state.selected).map((key, index) =>
                                         ['name', 'imageurl'].indexOf(key) < 0 &&
                                         <div className="row col-md-12" key={index}>
+<<<<<<< HEAD
                                             <dt className="col-md-4 text-capitalize">{key}: </dt>
+=======
+                                            <dt className="col-md-4 text-capitalize">{key}</dt>
+>>>>>>> 1b7249026db97ae49fbf8201b2db1f221142edab
                                             <dd className="col-md-8">{this.state.selected[key]}</dd>
                                         </div>
                                     )}
